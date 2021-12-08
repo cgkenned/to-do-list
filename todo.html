@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>Morning To-Do</h1>
+    <ul id="list">
+        <li class="checked">Wake up</li>
+        <li>Work out</li>
+        <li>Shower</li>
+        <li>Get dressed</li>
+        <li>Eat breakfast</li>
+        <li>Leave for work</li>
+    </ul>
+    <h3>New to-do:</h3>
+    <input type="text" id="enterNew">
+    <button onclick="newToDo()">Add</button>
+
+<script>
+    // create a new list item with input + button
+    function newToDo() {
+        let newItem = document.createElement('li');
+        let newItemValue = document.getElementById('enterNew').value;
+        let text = document.createTextNode(newItemValue);
+        newItem.appendChild(text);
+        document.getElementById('list').appendChild(newItem);
+        // clear out input box
+        document.getElementById('enterNew').value = '';
+    }
+
+    // hide list item when clicked
+    let listItems = document.querySelectorAll('li');
+
+    let i;
+    for (i = 0; i < listItems.length; i++) {
+        listItems[i].addEventListener('click', function() {
+            this.style.display = 'none';
+        });
+    }
+</script>
+
+</body>
+</html>
